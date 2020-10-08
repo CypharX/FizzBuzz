@@ -10,7 +10,7 @@ function fizzThis(fizz, buzz) {
             let fizzCheck = loop % fizz;
             let buzzCheck = loop % buzz;
             if (fizzCheck == 0 && buzzCheck == 0) {
-                output += 'FIZZBUZZ!, ';
+                output += "<span class='fizzBuzz'>FIZZBUZZ! </span> ";
             }
             else if (fizzCheck == 0) {
                 output += 'Fizz, ';
