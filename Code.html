@@ -8,7 +8,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="Images/favicon-32x32.png">
-
+    <link href="Content/CustomCSS.css" rel="stylesheet" />
+    <link href="Content/prism.css" rel="stylesheet" />
     <title>Fizz-Buzz</title>
 
     <!-- Bootstrap core CSS -->
@@ -16,10 +17,10 @@
 
 </head>
 
-<body>
+<body class="bodybg">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <nav class="navbar navbar-expand-lg navbar-dark navstyle static-top">
         <div class="container">
             <a class="navbar-brand" href="/Index.html"><img src="Images/favicon.ico" /></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,15 +50,85 @@
     </nav>
 
     <!-- Page Content -->
-    <div class="container">
+    <div class="container gridstyle">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h1 class="mt-5">This Page shows your JS code</h1>
-                <p class="lead">You need to use a Syntax Highlighter - Prism.js is default</p>
-                <ul class="list-unstyled">
-                    <li>Code with highlighter</li>
-                    <li>Will display on this page</li>
-                </ul>
+                <img src="Images/Fizzbuzz.png" /><br />
+                <p class="h2">A Javascript Coding Challenge</p><hr />
+                <ul class="list-unstyled h6">
+                    <li>A look into the "magic" of this application.</li>
+                    <li>This is the Javascript code that makes it run.</li>
+                </ul><br />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <pre>
+<code class="language-js line-numbers">//Listens for the button click at "fizzBtn" and runs a function on click.
+ document.getElementById('fizzBtn').addEventListener('click', function () {
+    //Creates two variables and assigns them the values from the user inputs.
+    let fizzInput = parseInt(document.getElementById('input1').value);
+    let buzzInput = parseInt(document.getElementById('input2').value);
+    //calls "fizzThis" function with the user inputs and returns the result to "fizzedOut" variable.
+    let fizzedOut = fizzThis(fizzInput, buzzInput);
+    //Sends the "fizzedOut" result to the "output" id to be displayed to the user.
+    document.getElementById('output').innerHTML = fizzedOut;
+ });
+ //Declaration of the "fizzThis" function.
+ function fizzThis(fizz, buzz) {
+    let output = "";
+    //Setting a loop to run 100 times
+    for (let loop = 1; loop <= 100; loop++) {
+        //Using the modulus operator to find the remainders of
+        //the inputs and the loop number to determine multiples.
+        let fizzCheck = loop % fizz;
+        let buzzCheck = loop % buzz;
+        //If else functions to check for multiples and return the
+        //corresponding output.
+        if (fizzCheck == 0 && buzzCheck == 0) {
+            output += "<span class='fizzBuzz h4'>FIZZBUZZ! </span> ";
+        }
+        else if (fizzCheck == 0) {
+            output += "<span class='fizz h5'>Fizz, </span> ";
+        }
+        else if (buzzCheck == 0) {
+            output += "<span class='buzz h5'>Buzz, </span> ";
+        }
+        else {
+            output += `${loop}, `;
+        }
+    }
+    return output;
+ }
+ //Function to listen for keypresses in "input1" and ignore all non-number characters
+ document.getElementById('input1').addEventListener('keypress', function (evt) {
+    //Creates the "char" variable and sets it equal to the character code of the
+    //pressed input
+    let char = evt.which;
+    //Uses the value of "char" to determine the given character using its Ascii
+    // code and returning true if it's a character we want and false if it's any
+    //other character.
+    if (char >= 48 && char <= 57) {
+        return true;
+    }
+    else {
+        evt.preventDefault();
+        return false;
+    }
+ });
+ //Same as above function but for "input2"
+ document.getElementById('input2').addEventListener('keypress', function (evt) {
+     let char = evt.which;
+     if (char >= 48 && char <= 57) {
+        return true;
+     }
+     else {
+        evt.preventDefault();
+        return false;
+     }
+ });
+                    </code>
+                </pre>
             </div>
         </div>
     </div>
@@ -66,7 +137,7 @@
     <script src="//code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="//stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-
+    <script src="Scripts/prism.js"></script>
 </body>
 
 </html>
