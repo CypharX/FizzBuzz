@@ -1,39 +1,14 @@
 ﻿.bodybg {
-    background-color: #4AFF24;
+    background-color: #7272AB;
 }
 
 .gridstyle {
-    background-color: #B13DFF;
+    background-color: #11A843;
     color: #f6f4f3;
-    border: 3px solid black;
+    outline: 3px solid black;
 }
-
-.buttonstyle {
-    background-color: #e57a44;
-    color: #f6f4f3;
-}
-
-.outputstyle {
-    text-decoration: underline;
-}
-
 .navstyle {
-    background-color: #1e304a;
+    background-color: #262322;
 }
 
-.swal-overlay {
-    background-color: #0a2239;
-}
 
-.swal-modal {
-    border: 5px solid #C06E52;
-    background-color: #D5D6AA;
-}
-
-.swal-text {
-    color: #4F000B;
-}
-
-.swal-title {
-    color: #4F000B;
-}

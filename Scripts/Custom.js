@@ -10,17 +10,47 @@ function fizzThis(fizz, buzz) {
             let fizzCheck = loop % fizz;
             let buzzCheck = loop % buzz;
             if (fizzCheck == 0 && buzzCheck == 0) {
-                output += "<span class='fizzBuzz'>FIZZBUZZ! </span> ";
+                output += "<span class='fizzBuzz h4'>FIZZBUZZ! </span> ";
             }
             else if (fizzCheck == 0) {
-                output += 'Fizz, ';
+                output += "<span class='fizz h5'>Fizz, </span> ";
             }
             else if (buzzCheck == 0) {
-                output += 'Buzz, ';
+                output += "<span class='buzz h5'>Buzz, </span> ";
             }
             else {
                 output += `${loop}, `;
             }
         }
     return output
+}
+document.getElementById('input1').addEventListener('keypress', function (evt) {
+    //Creates the "char" variable and sets it equal to the character code of the 
+    //pressed input
+    let char = evt.which;
+    //Uses the value of "char" to determine the given character using its Ascii
+    // code and returning true if it's a character we want and false if it's any
+    //other character.
+    if (char >= 48 && char <= 57) {
+        return true;
     }
+    else {
+        evt.preventDefault();
+        return false;
+    }
+});
+document.getElementById('input2').addEventListener('keypress', function (evt) {
+    //Creates the "char" variable and sets it equal to the character code of the 
+    //pressed input
+    let char = evt.which;
+    //Uses the value of "char" to determine the given character using its Ascii
+    // code and returning true if it's a character we want and false if it's any
+    //other character.
+    if (char >= 48 && char <= 57) {
+        return true;
+    }
+    else {
+        evt.preventDefault();
+        return false;
+    }
+});
