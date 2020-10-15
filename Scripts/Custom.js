@@ -5,33 +5,42 @@ document.getElementById('fizzBtn').addEventListener('click', function () {
     let buzzInput = parseInt(document.getElementById('input2').value);
     //calls "fizzThis" function with the user inputs and returns the result to "fizzedOut" variable.
     let fizzedOut = fizzThis(fizzInput, buzzInput);
-    //Sends the "fizzedOut" result to the "output" id to be displayed to the user. 
+    console.log(fizzedOut);
+    //Sends the "fizzedOut" result to the "output" id to be displayed to the user.
     document.getElementById('output').innerHTML = fizzedOut;
 });
 //Declaration of the "fizzThis" function.
 function fizzThis(fizz, buzz) {
-    let output = "";
+    let output = '<table class="table table-dark">';
     //Setting a loop to run 100 times
-    for (let loop = 1; loop <= 100; loop++) {        
-            //Using the modulus operator to find the remainders of
-            //the inputs and the loop number to determine multiples.
-            let fizzCheck = loop % fizz;
-            let buzzCheck = loop % buzz;
-            //If else functions to check for multiples and return the
-            //corresponding output.
-            if (fizzCheck == 0 && buzzCheck == 0) {
-                output += "<span class='fizzBuzz h4'>FIZZBUZZ! </span> ";
-            }
-            else if (fizzCheck == 0) {
-                output += "<span class='fizz h5'>Fizz, </span> ";
-            }
-            else if (buzzCheck == 0) {
-                output += "<span class='buzz h5'>Buzz, </span> ";
-            }
-            else {
-                output += `${loop}, `;
+    for (let loop = 1; loop <= 100; loop++) {
+        //Using the modulus operator to find the remainders of
+        //the inputs and the loop number to determine multiples.
+        let fizzCheck = loop % fizz;
+        let buzzCheck = loop % buzz;
+        //If else functions to check for multiples and return the
+        //corresponding output.
+        if (loop % 5 == 1) {
+            output += "<tr>"
         }
+        if (fizzCheck == 0 && buzzCheck == 0) {
+            output += "<td>FIZZBUZZ!</td>";
+        }
+        else if (fizzCheck == 0) {
+            output += "<td>Fizz,</td>";
+        }
+        else if (buzzCheck == 0) {
+            output += "<td>Buzz,</td>";
+        }
+        else {
+            output += `<td>${loop},</td>`;
+        }
+        if (loop % 5 == 0) {
+            output += "</tr>"
+        }
+        
     }
+    output += '</table>'
     return output;
 }
 //Function to listen for keypresses in "input1" and ignore all non-number characters
