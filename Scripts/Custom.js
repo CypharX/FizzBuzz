@@ -11,7 +11,7 @@ document.getElementById('fizzBtn').addEventListener('click', function () {
 });
 //Declaration of the "fizzThis" function.
 function fizzThis(fizz, buzz) {
-    let output = '<table class="table table-dark">';
+    let output = '<table class="table table-primary table-striped">';
     //Setting a loop to run 100 times
     for (let loop = 1; loop <= 100; loop++) {
         //Using the modulus operator to find the remainders of
@@ -24,16 +24,16 @@ function fizzThis(fizz, buzz) {
             output += "<tr>"
         }
         if (fizzCheck == 0 && buzzCheck == 0) {
-            output += "<td>FIZZBUZZ!</td>";
+            output += '<td class="h5"><u>FIZZBUZZ</u></td>';
         }
         else if (fizzCheck == 0) {
-            output += "<td>Fizz,</td>";
+            output += '<td class="h6"><strong>Fizz</strong></td>';
         }
         else if (buzzCheck == 0) {
-            output += "<td>Buzz,</td>";
+            output += '<td class="h6"><em>Buzz</em></td>';
         }
         else {
-            output += `<td>${loop},</td>`;
+            output += `<td>${loop}</td>`;
         }
         if (loop % 5 == 0) {
             output += "</tr>"
